@@ -87,11 +87,11 @@ def generate_self_signed_cert(cert_file, key_file):
 
     # schrijf key
     with open(key_file, "wb") as f:
-        f.write(key.private_bytes(
-            encoding=serialization.Encoding.PEM,
-            format=serialization.PrivateFormat.TraditionalOpenSSL,
-            encryption_algorithm=serialization.NoEncryption()
-        ))
+       f.write(key.private_bytes(
+    encoding=serialization.Encoding.PEM,
+    format=serialization.PrivateFormat.PKCS8,
+    encryption_algorithm=serialization.NoEncryption()
+))
 
     # schrijf cert
     with open(cert_file, "wb") as f:
